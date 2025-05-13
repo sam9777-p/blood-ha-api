@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: blood-donation-eligibility-api
+    env: docker
+    plan: free
