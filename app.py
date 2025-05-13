@@ -1,3 +1,12 @@
+from flask import Flask, request, jsonify
+
+# Initialize the Flask application
+app = Flask(__name__)
+
+@app.route("/", methods=["GET"])
+def index():
+    return "Blood Donation Eligibility API is running."
+
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.json
@@ -41,3 +50,7 @@ def predict():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+# Run the app
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
